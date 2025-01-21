@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма AmoCRM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="amocrm-form" action="amocrm-handler.php" method="POST">
+        <label>Имя: <input type="text" name="name" required></label><br>
+        <label>Email: <input type="email" name="email" required></label><br>
+        <label>Телефон: <input type="tel" name="phone" required></label><br>
+        <label>Цена: <input type="number" name="price" required></label><br>
+        <input type="hidden" name="isLongVisit" id="isLongVisit" value="0">
+        <button type="submit">Отправить</button>
+    </form>
+
+    <script>
+        // Отслеживаем время пребывания пользователя на странице
+        let timeSpent = 0;
+        setInterval(() => {
+            timeSpent++;
+            if (timeSpent > 30) {
+                document.getElementById('isLongVisit').value = 1;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
